@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-
+// interface is a structure for type checking. 
 export interface PlayingCard{
   cardVal: string;
   suit: string;
 }
 
+//Class is an object factory - adds extra js
 export class PlayingDud{
   cardVal: string;
   suit: string;
@@ -37,8 +38,11 @@ export class PlayingDud{
   selector: 'app-root', //C. Service
   template: `<h1>Hello world! {{title}} <br/>
               {{card.cardVal}} of {{card.suit}} <br/>
-              {{card1.cardVal}} of {{card1.suit}}</h1>`,
-  styleUrls: ['./app.component.css']
+              {{card1.cardVal}} of {{card1.suit}}</h1><br/>
+              Card: <input [(ngModel)]="card.cardVal">
+              Suit: <input [(ngModel)]="card.suit">
+              `,
+  
 })
 export class AppComponent {
   title = 'This is Angular!';
