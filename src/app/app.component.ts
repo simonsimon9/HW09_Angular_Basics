@@ -8,28 +8,28 @@ export interface PlayingCard{
 //A. Decorator
 @Component({
   selector: 'app-root', //C. Service
-  template: `<h1>Hello world! {{title}}</h1> <br/>
-  <ul *ngFor="let item of firstName; let i = index">
-    <li>{{"Item"+i+":"+item}}</li>
-</ul>
-<!-- Show cards in unordered list. -->
-<table>
-<tr *ngFor="let card of cards">
-<td> <ul> <li> {{card.cardVal}} </li> </ul> </td>
-<td> <ul> <li> {{card.suit}} </li> </ul> </td>
-</tr>
-</table>`
-              
+  template: `<input [(ngModel)]="myinput">
+  <input type='button' (click)=doSomething(myinput) >
+  {{myoutput}}
+  {{myinput}} <br/>
+  
+  <input [(ngModel)]="myinput1">
+<input type='button' (click)=doSomething1(myinput1)>
+{{myoutput1}}`
   
 })
 export class AppComponent {
-  title = 'This is Angular!';
-  // Include card data in collection.
-cards:PlayingCard[] = [
-  { cardVal: "Ace", suit: "Spades" },
-  { cardVal: "Two", suit: "Clubs" },
-  { cardVal: "Six", suit: "Hearts"} ]
+  myinput = '';
+  myinput1 = '';
+  myoutput = '';
+  myoutput1='';
+  doSomething(someContent : any) {
+    alert(someContent);
+    this.myoutput = someContent;
+  }
 
-    //keep track index
-    firstName = ['abe', 'amy', 'al'];
+  doSomething1(someContent: any){
+    alert(someContent);
+    this.myoutput1 = someContent;
+  }
   }
